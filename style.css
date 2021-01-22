@@ -29,4 +29,14 @@ body{
 .block_bg:hover{
     background-color: #343d4e !important;
 }
-  
+ol {
+    margin-bottom: 60px;
+}
+li{
+    list-style-type: square;
+}
+footer{
+    position: relative;
+    top: 20px;
+    margin-top: 20px;
+}
