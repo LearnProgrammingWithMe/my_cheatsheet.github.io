@@ -30,13 +30,14 @@ body{
     background-color: #343d4e !important;
 }
 ol {
-    margin-bottom: 60px;
+    list-style-type: square !important;
+    margin-bottom: 60px !important;
 }
 li{
-    list-style-type: square;
+    list-style-type: square !important;
 }
 footer{
     position: relative;
-    top: 20px;
-    margin-top: 20px;
+    top: 20px !important;
+    margin-top: 20px !important;
 }
