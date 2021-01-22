@@ -19,9 +19,12 @@
 </div>
 
 <div class="container">
+
+    <h4 class="text-center text-warning">Mysql Query</h4>
+    <hr>
 <ol>
 <li class="text-warning">
-<p class="mb-4 text-info">This is mysql SELECT query</p>
+<p class="mb-4 text-info">This is mysql SELECT query.</p>
 <pre class="language-php block_bg">
 <code>
 '''
@@ -45,8 +48,159 @@
 </pre>
 </li>
 </ol>
+
+<ol>
+<li class="text-warning">
+<p class="mb-4 text-info">This is LIKE Oparator used for searching.</p>
+<pre class="language-php block_bg">
+<code>
+'''
+
+    SELECT * FROM actress WHERE fname LIKE 's%'; // it's used for search first character
+    SELECT * FROM actress WHERE fname NOT LIKE 's%' ; // it's used for search first character with NOT Oparator
+    SELECT * FROM actress WHERE fname LIKE '%s%' OR lname LIKE '%oo%'; // it's used for search first , middle , last character it can be anywhere
+    SELECT * FROM actress WHERE BINARY fname LIKE 'S%'; // it for search first character with BINARY can check case-sensitive results
+    SELECT * FROM actress WHERE age LIKE '2%'; // it's used for search first and Number character
+    SELECT * FROM actress WHERE lname LIKE '%or'; // it's used for search last character
+    SELECT * FROM actress WHERE lname LIKE 'k%r'; // it's used for search first and last character
+    SELECT * FROM actress WHERE fname LIKE '___am%'; // it's used for search without first 123... character just add _underscore
+    SELECT * FROM actress WHERE fname LIKE 's__m%'; // it's used for search without middle 123... character just add _underscore
+
+'''
+</code>
+</pre>
+</li>
+</ol>
+
+<ol>
+<li class="text-warning">
+<p class="mb-4 text-info">This is Regular_Expression used for complex searching.</p>
+<pre class="language-php block_bg">
+<code>
+'''
+
+    SELECT * FROM actress WHERE lname REGEXP 'oor'; // it's used for search first , middle , last character it can be anywhere
+    SELECT * FROM actress WHERE lname REGEXP '^ka'; // it's used for search first same character
+    SELECT * FROM actress WHERE lname REGEXP 'or$'; // it's used for search last same character
+    SELECT * FROM actress WHERE lname REGEXP 'ka|oor|poor'; // it's used for search first , middle , last character it can be anywhere
+    SELECT * FROM actress WHERE lname REGEXP '^ka|oor|poor$'; // this is multiple conditions
+    SELECT * FROM actress WHERE fname REGEXP '[is]'; // it's used for search character one by one anywhere
+    SELECT * FROM actress WHERE fname REGEXP '[isv]a'; // it's used for search combine last character like ia , sa , va
+    SELECT * FROM actress WHERE fname REGEXP 's[oh]';// it's used for search combine first character like so , sh
+    SELECT * FROM actress WHERE fname REGEXP '^[isvrdi]'; // it's used for search just first character with multiple values
+    SELECT * FROM actress WHERE fname REGEXP '[sia]$'; // it's used for search just last character with multiple values
+    SELECT * FROM actress WHERE fname REGEXP '[a-s]'; // this is range for search a-z;
+
+'''
+</code>
+</pre>
+</li>
+</ol>
+
+<ol>
+<li class="text-warning">
+<p class="mb-4 text-info">This is ORDER BY and DISTINCT.</p>
+<pre class="language-php block_bg">
+<code>
+'''
+    SELECT * FROM actress ORDER BY fname (ASC); // it's used for sort or ordering and ASC is default value
+    SELECT * FROM actress ORDER BY ID DESC; // it's used for reverse ordering
+    SELECT DISTINCT age FROM actress ORDER BY age; // it's used for get unique value with oredr by
+
+'''
+</code>
+</pre>
+</li>
+</ol>
+
+<ol>
+<li class="text-warning">
+<p class="mb-4 text-info">This is LIMIT and OFFSET.</p>
+<pre class="language-php block_bg">
+<code>
+'''
+    SELECT * FROM actress LIMIT 4; // it's used for show limited number of row
+    SELECT * FROM actress LIMIT 3 , 3; // this is LIMIT with OFFSET
+    SELECT * FROM actress WHERE age >= 27 ORDER BY ID DESC LIMIT 4; // this is LIMIT with multiple conditions
+
+'''
+</code>
+</pre>
+</li>
+</ol>
+
+<ol>
+<li class="text-warning">
+<p class="mb-4 text-info">This is AGGREGATE function.</p>
+<pre class="language-php block_bg">
+<code>
+'''
+    SELECT COUNT(ID) FROM actress; // it's used for count any data
+    SELECT COUNT(DISTINCT age) AS AGE FROM actress; // count function wiith DISTINCT
+    SELECT MAX(age) AS AGE FROM actress; // it's used for get maximum result
+    SELECT MIN(age) AS AGE FROM actress; // it's used for get minimum result
+    SELECT SUM(salary) AS salary FROM actress; // it's used for sum addition data
+    SELECT AVG(age) AS AGE FROM actress; it's used for get average result
+
+'''
+</code>
+</pre>
+</li>
+</ol>
+
+<ol>
+<li class="text-warning">
+<p class="mb-4 text-info">This is PRIMARY KEY and FOREIGN KEY used for join table.</p>
+<pre class="language-php block_bg">
+<code>
+'''
+    CREATE TABLE industry_name (
+        id INT NOT NULL AUTO_INCREMENT,
+        industry VARCHAR(50) NOT NULL,
+        PRIMARY KEY (id)
+        );
+
+        CREATE TABLE artist(
+        ID INT NOT NULL AUTO_INCREMENT,
+        Name VARCHAR(50) NOT NULL UNIQUE,
+        Age INT NOT NULL,
+        film_industry VARCHAR(50) NOT NULL,
+        PRIMARY KEY (ID),
+        FOREIGN KEY (film_industry) REFERENCES industry_name (id)
+    );
+
+'''
+</code>
+</pre>
+</li>
+</ol>
+
+<ol>
+<li class="text-warning">
+<p class="mb-4 text-info">This is INNER JOIN used for show match data.</p>
+<pre class="language-php block_bg">
+<code>
+'''
+    SELECT * FROM artist INNER JOIN industry_name ON artist.film_industry = industry_name.id;
+    SELECT * FROM artist a INNER JOIN industry_name i ON a.film_industry = i.id;
+    SELECT a.id , a.Name , a.Age , i.industry FROM artist a INNER JOIN industry_name i ON a.film_industry = i.id;
+    SELECT a.id , a.Name , a.Age , i.industry FROM artist a INNER JOIN industry_name i ON a.film_industry = i.id
+    WHERE a.Age >= 30 ORDER BY a.Name;
+
+'''
+</code>
+</pre>
+</li>
+</ol>
+
+
+
 </div>
 
+
+    <footer class="container bg-danger rounded">
+        <p class="p-3 text-center">Powered By Fahim IT</p>
+    </footer>
 
         <script src="bootstrap.min.js"></script>
     <script src="clipboard.min.js"></script>
