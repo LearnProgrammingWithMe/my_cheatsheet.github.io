@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Potta+One&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap-5.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>My Cheatsheet</title>
+</head>
+
+<body>
+
+<div class="container">
+    <h3 class="text-center mb-5 block_bg p-3 rounded text-danger">My Cheatsheet</h3>
+</div>
+
+<div class="container">
+<ol>
+<li class="text-warning">
+<p class="mb-4 text-info">This is mysql SELECT query</p>
+<pre class="language-php block_bg">
+<code>
+'''
+
+    SELECT * FROM $table_name;
+    SELECT ID, fname , lname FROM PHP; // it's used for to get any particuler column.
+    SELECT ID AS Number , fname AS "First Name" , lname AS LastName FROM PHP; // it's used for to modify table title name
+    SELECT * FROM PHP WHERE age >= 27; // this is where clause it's used for get data with conditions
+    SELECT * FROM actress WHERE age >= 26 AND age <= 29 AND film_industry = 'Bollywood'; // this is where clause with AND Oparator
+    SELECT * FROM actress WHERE age >= 26 OR film_industry = 'Bollywood'; // this is where clause with OR Oparator
+    SELECT * FROM actress WHERE NOT age <= 27; // this is where clause with NOT Oparator
+    SELECT * FROM actress WHERE (age <= 29 OR fname = 'Disha') AND film_industry = 'Bollywood'; // this is combine data searching way
+    SELECT * FROM actress WHERE age IN (28 , 29 , 30); // this is IN Oparator use for searching particuler results
+    SELECT * FROM actress WHERE fname NOT IN ('Disha' , 'Sonam'); // this is IN / NOT Oparator use for searching particuler results
+    SELECT * FROM actress WHERE fname IN('Disha') OR lname IN ('Kapoor') OR age IN (30); // this is multiple condition with IN Oparator
+    SELECT * FROM actress WHERE age BETWEEN 28 AND 30; // this is BETWEEN Oparator use for get some between results
+    SELECT * FROM actress WHERE age NOT BETWEEN 28 AND 30; // this is BETWEEN Oparator with NOT
+
+'''
+</code>
+</pre>
+</li>
+</ol>
+</div>
+
+
+        <script src="bootstrap-5.0.0/js/bootstrap.min.js"></script>
+    <script src="js/prism.js"></script>
+</body>
+</html>
