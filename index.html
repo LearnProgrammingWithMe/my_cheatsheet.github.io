@@ -36,10 +36,10 @@
     SELECT * FROM actress WHERE age >= 26 AND age <= 29 AND film_industry = 'Bollywood'; // this is where clause with AND Oparator
     SELECT * FROM actress WHERE age >= 26 OR film_industry = 'Bollywood'; // this is where clause with OR Oparator
     SELECT * FROM actress WHERE NOT age <= 27; // this is where clause with NOT Oparator
-    SELECT * FROM actress WHERE (age <= 29 OR fname = 'Disha') AND film_industry = 'Bollywood'; // this is combine data searching way
+    SELECT * FROM actress WHERE (age <= 29 OR fname = 'Sonam') AND film_industry = 'Bollywood'; // this is combine data searching way
     SELECT * FROM actress WHERE age IN (28 , 29 , 30); // this is IN Oparator use for searching particuler results
-    SELECT * FROM actress WHERE fname NOT IN ('Disha' , 'Sonam'); // this is IN / NOT Oparator use for searching particuler results
-    SELECT * FROM actress WHERE fname IN('Disha') OR lname IN ('Kapoor') OR age IN (30); // this is multiple condition with IN Oparator
+    SELECT * FROM actress WHERE fname NOT IN ('mira' , 'Sonam'); // this is IN / NOT Oparator use for searching particuler results
+    SELECT * FROM actress WHERE fname IN('Sonam') OR lname IN ('Kapoor') OR age IN (30); // this is multiple condition with IN Oparator
     SELECT * FROM actress WHERE age BETWEEN 28 AND 30; // this is BETWEEN Oparator use for get some between results
     SELECT * FROM actress WHERE age NOT BETWEEN 28 AND 30; // this is BETWEEN Oparator with NOT
 
@@ -140,7 +140,7 @@
     SELECT MAX(age) AS AGE FROM actress; // it's used for get maximum result
     SELECT MIN(age) AS AGE FROM actress; // it's used for get minimum result
     SELECT SUM(salary) AS salary FROM actress; // it's used for sum addition data
-    SELECT AVG(age) AS AGE FROM actress; it's used for get average result
+    SELECT AVG(age) AS AGE FROM actress; // it's used for get average result
 
 '''
 </code>
