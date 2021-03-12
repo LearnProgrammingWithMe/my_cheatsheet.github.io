@@ -61,7 +61,7 @@ autoJokes.addEventListener("click", () => {
   }, 6000);
 });
 
-autoJokes.addEventListener("mouseenter", () => {
+autoJokes.addEventListener("dblclick", () => {
   clearInterval(getAuto);
   autoJokes.innerHTML = "auto" + '<i class="tiny material-icons">autorenew</i>';
 });
