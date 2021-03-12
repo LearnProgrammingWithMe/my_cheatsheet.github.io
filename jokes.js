@@ -47,21 +47,21 @@ getJokes();
 
 // auto event control
 
-getAuto = setInterval(() => {
-  getJokes();
-  autoJokes.innerHTML =
-    "stop auto" + '<i class="tiny material-icons">autorenew</i>';
-}, 6000);
+// getAuto = setInterval(() => {
+//   getJokes();
+//   autoJokes.innerHTML =
+//     "stop auto" + '<i class="tiny material-icons">autorenew</i>';
+// }, 6000);
 
-autoJokes.addEventListener("click", () => {
-  getAuto = setInterval(() => {
-    getJokes();
-    autoJokes.innerHTML =
-      "stop auto" + '<i class="tiny material-icons">autorenew</i>';
-  }, 6000);
-});
+// autoJokes.addEventListener("click", () => {
+//   getAuto = setInterval(() => {
+//     getJokes();
+//     autoJokes.innerHTML =
+//       "stop auto" + '<i class="tiny material-icons">autorenew</i>';
+//   }, 6000);
+// });
 
-autoJokes.addEventListener("dblclick", () => {
-  clearInterval(getAuto);
-  autoJokes.innerHTML = "auto" + '<i class="tiny material-icons">autorenew</i>';
-});
+// autoJokes.addEventListener("dblclick", () => {
+//   clearInterval(getAuto);
+//   autoJokes.innerHTML = "auto" + '<i class="tiny material-icons">autorenew</i>';
+// });
