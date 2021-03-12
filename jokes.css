@@ -1,9 +1,32 @@
+.wraper {
+  margin-top: 50px;
+}
+
+.title {
+  border-bottom: 1px solid #bbbbbb;
+  padding-bottom: 15px;
+  font-family: "Akaya Telivigala", cursive;
+}
+.joke {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 20px;
+  background-color: #455a64;
+  padding: 5px;
+  border-radius: 3px;
+}
+#jokeBtn {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding-right: 30px;
+}
+
+i.tiny.material-icons {
+  position: absolute;
+  margin-left: 4px;
+}
 footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: red;
-    color: white;
-    text-align: center;
- }
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
