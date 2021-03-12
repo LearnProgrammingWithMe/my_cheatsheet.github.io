@@ -4,6 +4,8 @@ const jokes = document.querySelector("#joke");
 
 const jokeBtn = document.querySelector("#jokeBtn");
 
+const autoJokes = document.querySelector(".auto");
+
 // * done by PROMISE
 // const getJokes = () => {
 
@@ -42,3 +44,24 @@ const getJokes = async () => {
 jokeBtn.addEventListener("click", getJokes);
 
 getJokes();
+
+// auto event control
+
+getAuto = setInterval(() => {
+  getJokes();
+  autoJokes.innerHTML =
+    "stop auto" + '<i class="tiny material-icons">autorenew</i>';
+}, 6000);
+
+autoJokes.addEventListener("click", () => {
+  getAuto = setInterval(() => {
+    getJokes();
+    autoJokes.innerHTML =
+      "stop auto" + '<i class="tiny material-icons">autorenew</i>';
+  }, 6000);
+});
+
+autoJokes.addEventListener("mouseenter", () => {
+  clearInterval(getAuto);
+  autoJokes.innerHTML = "auto" + '<i class="tiny material-icons">autorenew</i>';
+});
