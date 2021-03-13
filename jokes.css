@@ -19,6 +19,23 @@
   margin-bottom: 10px;
   padding-right: 30px;
 }
+.rotate i{
+  animation-name: loop;
+  animation-duration: 0.7s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+}
+
+@keyframes loop{
+  0%{transform: rotate(0deg);}
+  100%{transform: rotate(360deg); color: greenyellow;}
+}
+
+.speed {
+  margin-top: 10px;
+  display: none;
+}
+
 
 i.tiny.material-icons {
   position: absolute;
