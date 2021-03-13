@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API - CALL</title>
+
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!-- material-icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Rajdhani&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body class="deep-purple darken-1">
+    <div class="container">
+      <h4 class="card-panel grey darken-4 white-text center lighten-2">
+        Geography
+      </h4>
+      <nav>
+        <div class="nav-wrapper grey darken-4">
+          <form>
+            <div class="input-field">
+              <input
+                id="search"
+                type="search"
+                name="search"
+                placeholder="Search Your Country"
+                required
+                onkeyup="searchFun()"
+              />
+              <label class="label-icon" for="search"
+                ><i class="material-icons">search</i></label
+              >
+              <i class="material-icons">close</i>
+            </div>
+          </form>
+        </div>
+      </nav>
+    </div>
+    <div id="container" class="container"></div>
+
+    <script>
+      const container = document.querySelector("#container");
+
+
+
+      // filter area 
+
+
+
+      // to get the response
+      $.ajax({
+        url: "https://restcountries.eu/rest/v2/all",
+        type: "get",
+        success: function (data) {
+          for (i in data) {
+            const htmlData = `
+            <div class="row">
+              <div class="col">
+
+                  <div class="card hoverable">
+                    <div class="card-image waves-effect waves-block waves-light">
+                      <img class="activator" src="${data[i].flag}">
+                    </div>
+                    <div class="card-content">
+                    <div id="getTitle">
+                      <span class="card-title Cname activator grey-text text-darken-4"> ${
+                        data[i].name
+                      } <i class="material-icons right">more_vert</i></span>
+                    </div>
+                      <p><a href="#">Capital : ${data[i].capital}</a></p>
+                      <p><a href="#">Region : ${data[i].region}</a></p>
+                       
+                      <p><a href="#">Population : ${data[i].population}+</a></p>
+                    </div>
+                    <div class="card-reveal">
+                      <span class="card-title grey-text text-darken-4">Details About ${
+                        data[i].name
+                      }<i class="material-icons right">close</i></span>
+                      <p>Subregion : ${data[i].subregion}</p>
+                      <p>Area : ${data[i].area}</p>
+                      <p>Borders : ${data[i].borders}</p>
+                      <p>Demonym : ${data[i].demonym}</p>
+                      <p>NativeName : ${data[i].nativeName}</p>
+                      <p>AltSpellings : ${data[i].altSpellings[0]} | ${
+              data[i].altSpellings[1]
+            }</p>
+                      <p>RegionalBlocs : ${data[i].regionalBlocs.map(
+                        (r) => `${r.acronym} | ${r.name}`
+                      )}</p>
+                      <p>CallingCodes : ${data[i].callingCodes}</p>
+                      <p>Timezones : ${data[i].timezones}</p>
+                      <p>Currencies : ${data[i].currencies.map(
+                        (c) => `${c.code} | ${c.name} | ${c.symbol}`
+                      )}</p>
+                      <p>Languages : ${data[i].languages.map(
+                        (l) => `${l.iso639_1} | ${l.name} | ${l.nativeName}`
+                      )}</p>
+                    </div>
+                  </div>
+                  
+                </div>
+            </div>
+              `;
+            container.insertAdjacentHTML("afterbegin", htmlData);
+          }
+        },
+      });
+
+      // container.insertAdjacentHTML("afterbegin", htmlData);
+    </script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>
