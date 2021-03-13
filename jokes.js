@@ -6,8 +6,6 @@ setTimeout(() => {
   const jokeBtn = document.querySelector("#jokeBtn");
 
   const autoJokes = document.querySelector(".auto");
-  
-  const speed = document.querySelector(".speed");
 
   // * done by async await
 
@@ -32,7 +30,7 @@ setTimeout(() => {
 
   let getAuotFun = false;
 
-  let speed = 1000;
+  let speed = 7000;
 
   const setAuto = () => {
     getAuotFun = true;
@@ -43,8 +41,6 @@ setTimeout(() => {
         "stop" + '<i class="tiny material-icons">autorenew</i>';
       autoJokes.classList.add("rotate");
 
-      jokeBtn.style.display = "none";
-      // speed.style.display = "block";
     }, speed);
   };
 
