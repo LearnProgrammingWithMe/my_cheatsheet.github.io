@@ -26,8 +26,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="jokes.css" />
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </head>
   <body class="blue-grey darken-4">
     <div class="container white-text center-align">
@@ -36,33 +34,63 @@
           <div class="card-panel blue-grey darken-1">
             <p class="flow-text title">👻 Best Jokes - Have fun 🙄</p>
 
-            <div id="joke" class="joke">
+            <div id="joke" class="joke grey darken-4">
               <div class="progress">
                 <div class="indeterminate"></div>
               </div>
             </div>
 
-            <button id="jokeBtn" class="waves-effect waves-light btn-small">
+            <!-- Dropdown Trigger -->
+            <a
+              class="dropdown-trigger btn btn-small grey darken-4 speed"
+              href="#"
+              data-target="dropdown1"
+              >Speed</a
+            >
+
+            <!-- Dropdown Structure -->
+            <ul id="dropdown1" class="dropdown-content">
+              <li><a href="#!">one</a></li>
+              <li><a href="#!">two</a></li>
+              <li class="divider" tabindex="-1"></li>
+              <li><a href="#!">three</a></li>
+              <li>
+                <a href="#!"><i class="material-icons">view_module</i>four</a>
+              </li>
+              <li>
+                <a href="#!"><i class="material-icons">cloud</i>five</a>
+              </li>
+            </ul>
+
+            <!-- end dropdown-content -->
+
+            <button
+              id="jokeBtn"
+              class="waves-effect waves-light btn-small grey darken-4"
+            >
               Next <i class="tiny material-icons">arrow_forward</i>
             </button>
 
-<!--             <button
+            <button
               id="jokeBtn"
-              class="waves-effect waves-light btn-small auto"
+              class="waves-effect waves-light btn-small auto grey darken-4"
+              onclick="M.toast({html: 'Fantastic'})"
             >
               Auto<i class="tiny material-icons">autorenew</i>
-            </button> -->
+            </button>
           </div>
         </div>
       </div>
     </div>
 
-    <footer class="page-footer center-align blue-grey darken-1">
+    <footer class="page-footer center-align grey darken-4">
       <div class="footer-copyright">
         <div class="container white-text">© 2022 Fahim IT Farm</div>
       </div>
     </footer>
 
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="jokes.js"></script>
   </body>
 </html>
