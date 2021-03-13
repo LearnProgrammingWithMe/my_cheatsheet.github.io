@@ -1,67 +1,71 @@
-//* https://icanhazdadjoke.com
+setTimeout(() => {
+  //* https://icanhazdadjoke.com
 
-const jokes = document.querySelector("#joke");
+  const jokes = document.querySelector("#joke");
 
-const jokeBtn = document.querySelector("#jokeBtn");
+  const jokeBtn = document.querySelector("#jokeBtn");
 
-const autoJokes = document.querySelector(".auto");
+  const autoJokes = document.querySelector(".auto");
+  
+  const speed = document.querySelector(".speed");
 
-// * done by PROMISE
-// const getJokes = () => {
+  // * done by async await
 
-//     const setHeader = {
-//         headers: {
-//             Accept: "application/json"
-//         }
-//     }
+  const getJokes = async () => {
+    try {
+      const setHeader = {
+        headers: {
+          Accept: "application/json",
+        },
+      };
+      const res = await fetch("https://icanhazdadjoke.com", setHeader);
+      const data = await res.json();
+      jokes.innerHTML = data.joke;
+    } catch (error) {
+      console.log("The error is " + error);
+    }
+  };
 
-//     fetch('https://icanhazdadjoke.com' , setHeader)
-//     .then((res) => res.json())
-//     .then((data) => {
-//         jokes.innerHTML = data.joke;
-//     }).catch((error) =>{
-//         console.log(error);
-//     })
-// }
+  jokeBtn.addEventListener("click", getJokes);
 
-// * done by async await
+  getJokes();
 
-const getJokes = async () => {
-  try {
-    const setHeader = {
-      headers: {
-        Accept: "application/json",
-      },
-    };
-    const res = await fetch("https://icanhazdadjoke.com", setHeader);
-    const data = await res.json();
-    jokes.innerHTML = data.joke;
-  } catch (error) {
-    console.log("The error is " + error);
-  }
-};
+  let getAuotFun = false;
 
-jokeBtn.addEventListener("click", getJokes);
+  let speed = 1000;
 
-getJokes();
+  const setAuto = () => {
+    getAuotFun = true;
 
-// auto event control
+    setAutoInt = setInterval(() => {
+      getJokes();
+      autoJokes.innerHTML =
+        "stop" + '<i class="tiny material-icons">autorenew</i>';
+      autoJokes.classList.add("rotate");
 
-// getAuto = setInterval(() => {
-//   getJokes();
-//   autoJokes.innerHTML =
-//     "stop auto" + '<i class="tiny material-icons">autorenew</i>';
-// }, 6000);
+      jokeBtn.style.display = "none";
+      // speed.style.display = "block";
+    }, speed);
+  };
 
-// autoJokes.addEventListener("click", () => {
-//   getAuto = setInterval(() => {
-//     getJokes();
-//     autoJokes.innerHTML =
-//       "stop auto" + '<i class="tiny material-icons">autorenew</i>';
-//   }, 6000);
-// });
+  const clearAuto = () => {
+    getAuotFun = false;
 
-// autoJokes.addEventListener("dblclick", () => {
-//   clearInterval(getAuto);
-//   autoJokes.innerHTML = "auto" + '<i class="tiny material-icons">autorenew</i>';
-// });
+    clearInterval(setAutoInt);
+    autoJokes.innerHTML =
+      "auto" + '<i class="tiny material-icons">autorenew</i>';
+    autoJokes.classList.remove("rotate");
+  };
+
+  autoJokes.addEventListener("click", () => {
+    getAuotFun ? clearAuto() : setAuto();
+  });
+
+  // end settimeout
+}, 100);
+
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.querySelectorAll(".dropdown-trigger");
+  var options = document.querySelectorAll(".dropdown-content");
+  M.Dropdown.init(elems, options);
+});
