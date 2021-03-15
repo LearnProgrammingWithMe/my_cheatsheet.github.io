@@ -227,8 +227,8 @@
 
                 if(keys.w && player.y > (road.top + 70)) {player.y -= player.speed;}
                 if(keys.s && player.y < (road.bottom - 85)){player.y += player.speed;}
-                if(keys.a && player.x > 0){player.x -= player.speed;}
-                if(keys.d && player.x < (road.width - 50)){player.x += player.speed;}
+                if(keys.a && player.x > -18){player.x -= player.speed;}
+                if(keys.d && player.x < (road.width - 80)){player.x += player.speed;}
 
                 car.style.top = player.y + "px";
                 car.style.left = player.x + "px";
